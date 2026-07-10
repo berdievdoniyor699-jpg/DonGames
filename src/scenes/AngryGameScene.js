@@ -33,10 +33,9 @@ export default class AngryGameScene extends Phaser.Scene {
     this.drawSlingshot(this.birdStartX, this.birdStartY);
 
     // Птица
-    // Вместо isStatic мы отключаем ей гравитацию на время натяжения,
-    // чтобы физика Matter.js не глючила при резком включении динамики
+    // Добавляем sleepThreshold: -1, чтобы Matter.js не усыплял птицу при удержании
     this.bird = this.matter.add.image(this.birdStartX, this.birdStartY, 'bird', null, { 
-        shape: 'circle', restitution: 0.5, density: 0.005
+        shape: 'circle', restitution: 0.5, density: 0.005, sleepThreshold: -1
     });
     this.bird.setIgnoreGravity(true);
 
@@ -86,6 +85,7 @@ export default class AngryGameScene extends Phaser.Scene {
         
         // Включаем гравитацию и задаем скорость
         this.bird.setIgnoreGravity(false);
+        if (this.bird.setAwake) this.bird.setAwake(); // Пробуждаем физическое тело
         
         let dx = this.birdStartX - this.bird.x;
         let dy = this.birdStartY - this.bird.y;
