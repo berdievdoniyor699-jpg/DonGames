@@ -17,11 +17,14 @@
       }
       #ui {
         margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
       }
       button {
         padding: 10px 20px;
         font-size: 16px;
-        margin: 0 10px;
         cursor: pointer;
         background: #4CAF50;
         color: white;
@@ -71,6 +74,47 @@
       .skin-card h3 { margin: 0 0 5px 0; font-size: 18px; }
       .skin-card p { margin: 0 0 15px 0; font-size: 14px; color: #555; }
       .skin-card button { margin: 0; width: 100%; padding: 8px 5px; font-size: 14px; }
+
+      /* Стили для рекламы Portail */
+      #ad-banner {
+        margin-top: 20px;
+        width: 800px;
+        background: #111;
+        border: 1px solid #444;
+        border-radius: 10px;
+        padding: 20px;
+        box-sizing: border-box;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      }
+      .ad-content h3 {
+        margin: 0 0 8px 0;
+        font-size: 20px;
+        color: #fff;
+      }
+      .ad-content p {
+        margin: 0;
+        font-size: 14px;
+        color: #bbb;
+        max-width: 550px;
+        line-height: 1.4;
+      }
+      .ad-btn {
+        background: #fff;
+        color: #000;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 15px;
+        transition: background 0.2s;
+      }
+      .ad-btn:hover {
+        background: #e0e0e0;
+      }
     </style>
   </head>
   <body>
@@ -107,6 +151,16 @@
     </div>
 
     <div id="game-container"></div>
+
+    <!-- Рекламный баннер Portail -->
+    <div id="ad-banner">
+      <div class="ad-content">
+        <h3>Portail — GPT-5.5, Claude, Gemini и Llama в одном месте</h3>
+        <p>Слишком много моделей ИИ, и весь контекст разбросан между ними. Portail объединяет историю переписки в одном минималистичном чате — переключайтесь между моделями и ни разу не теряйте мысль.</p>
+      </div>
+      <a href="https://portail.cc" target="_blank" class="ad-btn">Начать бесплатно</a>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
